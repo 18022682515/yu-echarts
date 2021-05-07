@@ -106,15 +106,17 @@ Vue.use(yuEcharts);              //引入
 export default {
 	data(){
 		return {
-			option:{}				<!-- echarts图表的配置，如果有type属性，则会提供相应图表的基础配置，并将基础配置合并到option -->
+			option:{}				
+			<!-- option可设置为空对象，如果图表有变化，只需基于vue响应式方式修改option -->
+			<!-- 用vue的set响应式函数,如下： -->
+			<!-- this.$set(this.option.xxx,'属性','值') -->
+			<!-- this.$set(this.option.xxx.xxx,'属性','值') -->
 		}
 	},
 	methods:{
-		load(chart){			<!-- load函数,图表元素加载完成后触发 -->
-			<!-- chart是echarts的实例 -->
-			<!-- 如需要设置option的配置,用vue的set响应式函数,如下： -->
-			<!-- this.$set(this.option.xxx,'属性','值') -->
-			<!-- this.$set(this.option.xxx.xxx,'属性','值') -->
+		<!-- load函数,图表元素加载完成后触发 -->
+		load(chart){			
+		<!-- chart是echarts的实例 -->
 		}
 	}
 }
